@@ -1,0 +1,51 @@
+// For format details, see https://aka.ms/vscode-remote/devcontainer.json or this file's README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.202.3/containers/python-3
+{
+	"name": "CIS2168-VSCODE-JUYPTER",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": {
+			"VARIANT": "3.9",
+		}
+	},
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "/bin/bash"
+					}
+				},
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.languageServer": "Default",
+				"python.linting.enabled": true,
+				"python.linting.pylintEnabled": true,
+				"python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
+				"python.formatting.blackPath": "/usr/local/py-utils/bin/black",
+				"python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
+				"python.linting.banditPath": "/usr/local/py-utils/bin/bandit",
+				"python.linting.flake8Path": "/usr/local/py-utils/bin/flake8",
+				"python.linting.mypyPath": "/usr/local/py-utils/bin/mypy",
+				"python.linting.pycodestylePath": "/usr/local/py-utils/bin/pycodestyle",
+				"python.linting.pydocstylePath": "/usr/local/py-utils/bin/pydocstyle",
+				"python.linting.pylintPath": "/usr/local/py-utils/bin/pylint"
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.vscode-pylance",
+				"janisdd.vscode-edit-csv",
+				"donjayamanne.python-extension-pack",
+				"ms-toolsai.jupyter",
+				"ritwickdey.LiveServer"
+			]
+		}
+	},
+	"postCreateCommand": "/usr/local/bin/python -m pip install --upgrade pip",
+	"runArgs": [
+		"--name",
+		"CIS2168-VSCODE-2023"
+	],
+	"remoteUser": "vscode"
+
+}
